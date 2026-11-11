@@ -1,0 +1,29 @@
+:root {
+  --ink: #101828;
+  --ink-2: #1b2638;
+  --ink-3: #2a3650;
+  --paper: #f4f5f7;
+  --surface: #ffffff;
+  --line: #e1e4ea;
+  --text: #172033;
+  --muted: #5d6879;
+  --accent: #2f55cf;
+  --accent-strong: #2543a8;
+  --accent-soft: #e8edfb;
+  --cite-bg: #fbefd5;
+  --cite-text: #8a4b08;
+  --ok: #17704a;
+  --ok-bg: #e2f4ea;
+  --warn: #8a4b08;
+  --warn-bg: #fbefd5;
+  --err: #b42318;
+  --err-bg: #fde8e6;
+
+  --font-ui: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-read: 'Newsreader', Georgia, 'Times New Roman', serif;
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --sidebar-w: 280px;
+}

@@ -1,0 +1,68 @@
+.app-shell { display: grid; grid-template-columns: var(--sidebar-w) minmax(0, 1fr); height: 100%; }
+.app-main { min-width: 0; height: 100%; overflow-y: auto; display: flex; flex-direction: column; }
+.topbar { display: none; }
+
+.sidebar {
+  background: var(--ink); color: #dfe5f1; display: flex; flex-direction: column;
+  gap: 14px; padding: 18px 14px; height: 100%; overflow: hidden;
+}
+.brand { font-family: var(--font-read); font-size: 24px; font-weight: 500; color: #fff; padding: 2px 6px 6px; letter-spacing: -0.01em; }
+.brand-inline { color: var(--ink); padding: 0; font-size: 20px; }
+
+.side-nav { display: grid; gap: 2px; }
+.side-nav a {
+  padding: 8px 10px; border-radius: var(--r-sm); color: #c9d2e3; text-decoration: none; font-weight: 500;
+}
+.side-nav a:hover { background: var(--ink-2); }
+.side-nav a.active { background: var(--ink-3); color: #fff; }
+.side-section { font-size: 13px; color: #8c97ad; padding: 4px 10px 0; }
+.convo-list { flex: 1; overflow-y: auto; display: grid; gap: 2px; align-content: start; margin: 0 -4px; padding: 0 4px; }
+.side-empty { color: #8c97ad; padding: 6px 10px; font-size: 14px; }
+.convo {
+  display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: var(--r-sm);
+  cursor: pointer; color: #c9d2e3;
+}
+.convo:hover { background: var(--ink-2); }
+.convo.is-active { background: var(--ink-3); color: #fff; }
+.convo-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+.convo-delete {
+  border: 0; background: transparent; color: #98a3b9; font-size: 18px; line-height: 1;
+  padding: 0 4px; border-radius: 4px; opacity: 0;
+}
+.convo:hover .convo-delete, .convo:focus-within .convo-delete, .convo-delete:focus-visible { opacity: 1; }
+.convo-delete:hover { color: #fff; background: var(--ink-3); }
+
+.side-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid var(--ink-3); padding-top: 12px; }
+.side-user { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; min-width: 0; }
+.side-user-text { display: grid; min-width: 0; line-height: 1.2; }
+.side-user-text strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+.side-user-text small { color: #98a3b9; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; font-weight: 600; flex: none; }
+
+.scrim { display: none; }
+
+/* Pages */
+.page { width: min(980px, 100%); margin: 0 auto; padding: 36px 32px 64px; display: grid; gap: 24px; align-content: start; }
+.page-narrow { width: min(720px, 100%); }
+.page-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.page-head p { margin-top: 6px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.plain-list { display: grid; }
+.plain-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.empty { color: var(--muted); padding: 18px 0; }
+.panel { display: grid; gap: 14px; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; margin: 0; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-weight: 500; }
+
+@media (max-width: 860px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { position: fixed; z-index: 30; inset: 0 auto 0 0; width: min(300px, 86vw); transform: translateX(-102%); transition: transform 0.2s; }
+  .sidebar.is-open { transform: none; }
+  .scrim { display: block; position: fixed; inset: 0; background: rgba(16, 24, 40, 0.45); z-index: 20; }
+  .topbar { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; flex: none; }
+  .convo-delete { opacity: 1; }
+  .page { padding: 24px 16px 48px; }
+  .two-col { grid-template-columns: 1fr; }
+}
